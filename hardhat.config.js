@@ -1,4 +1,9 @@
 require("@nomicfoundation/hardhat-toolbox");
+const dotenv =require('dotenv')
+
+dotenv.config({ path: './config.env' })
+
+const PVT_KEY=process.env.ACCOUNT_PVT_KEY
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -6,7 +11,7 @@ module.exports = {
   networks: {
     sepolia: {
       url: 'https://eth-sepolia.g.alchemy.com/v2/Oowoyz7KP_2pTBFvuDMEFtGJHecUSnrb',
-      accounts: ['397ebb4c333da305ff7a5c56e172cdd921532327d19a14bcc40554bfe87d238d']
+      accounts: [`${PVT_KEY}`]
     }
   },
   paths: {
